@@ -1,55 +1,54 @@
 <?php
-echo 'En las series';
-?>
+
 // Modelo de objetos que se corresponde con la tabla de MySQL
-class Book extends \Illuminate\Database\Eloquent\Model
+class Serie extends \Illuminate\Database\Eloquent\Model
 {
 	public $timestamps = false;
 }
 
-$app->get('/books', function ($req, $res, $args)  {
+$app->get('/series', function ($req, $res, $args)  {
 
     // Creamos un objeto collection + json con la lista de películas
 
-    // Obtenemos la lista de los libros de la base de datos y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
-    $libros = json_decode(\Book::all());
+    // Obtenemos la lista de los series de la base de datos y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
+    $series = json_decode(\Serie::all());
 
     // Mostramos la vista
-    return $this->view->render($res, 'booklist_template.php', [
-        'items' => $libros
+    return $this->view->render($res, 'serielist_template.php', [
+        'items' => $series
     ]);
-})->setName('books');
+})->setName('series');
 
 
-/*  Obtención de un libro en concreto  */
-$app->get('/books/{name}', function ($req, $res, $args) {
+/*  Obtención de un serie en concreto  */
+$app->get('/series/{name}', function ($req, $res, $args) {
 
-    // Creamos un objeto collection + json con el libro pasado como parámetro
+    // Creamos un objeto collection + json con el serie pasado como parámetro
 
-    // Obtenemos el libro de la base de datos a partir de su id y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
-    $p = \book::find($args['name']);
-    $libro = json_decode($p);
+    // Obtenemos el serie de la base de datos a partir de su id y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
+    $p = \serie::find($args['name']);
+    $serie = json_decode($p);
 
     // Mostramos la vista
-    return $this->view->render($res, 'book_template.php', [
-        'item' => $libro
+    return $this->view->render($res, 'serie_template.php', [
+        'item' => $serie
     ]);
 
 });
 
 
-/* Borrado de un libro en concreto */
-$app->delete('/books/{name}', function ($req, $res, $args) {
+/* Borrado de un serie en concreto */
+$app->delete('/series/{name}', function ($req, $res, $args) {
 
-    // Obtenemos el libro de la base de datos a partir de su id y lo borramos
-    $p = \Book::find($args['name']);  
+    // Obtenemos el serie de la base de datos a partir de su id y lo borramos
+    $p = \Serie::find($args['name']);  
     $p->delete();
 
 });
 
-/* Añadido de un libro */
+/* Añadido de un serie */
 
-$app->post('/books', function ($req, $res, $args) {
+$app->post('/series', function ($req, $res, $args) {
     $template = $req->getParsedBody();
 
     $datos = $template['template']['data'];
@@ -78,24 +77,24 @@ $app->post('/books', function ($req, $res, $args) {
         }
     }
 
-    $book = new Book;
+    $serie = new Serie;
 
-    $book->name = $name;
-    $book->description = $description;
-    $book->isbn = $isbn;
-    $book->datePublished = $datePublished;
-    $book->image = $image;
-    $book->save();
+    $serie->name = $name;
+    $serie->description = $description;
+    $serie->isbn = $isbn;
+    $serie->datePublished = $datePublished;
+    $serie->image = $image;
+    $serie->save();
 });
 
-/* Actualizacion de un libro en concreto */
-/*  Obtención de un libro en concreto  */
-$app->put('/books/{name}', function ($req, $res, $args) {
+/* Actualizacion de un serie en concreto */
+/*  Obtención de un serie en concreto  */
+$app->put('/series/{name}', function ($req, $res, $args) {
 
-    // Creamos un objeto collection + json con el libro pasado como parámetro
+    // Creamos un objeto collection + json con el serie pasado como parámetro
 
-    // Obtenemos el libro de la base de datos a partir de su id y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
-    $p = \book::find($args['name']);
+    // Obtenemos el serie de la base de datos a partir de su id y la convertimos del formato Json (el devuelto por Eloquent) a un array PHP
+    $p = \serie::find($args['name']);
 
     $template = $req->getParsedBody();
 
