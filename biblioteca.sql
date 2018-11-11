@@ -114,7 +114,8 @@ CREATE TABLE IF NOT EXISTS `series` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` TEXT COLLATE utf8_spanish_ci NOT NULL,
   `description` TEXT COLLATE utf8_spanish_ci NOT NULL,
-  `isbn` TEXT COLLATE utf8_spanish_ci NOT NULL,
+  `temporadas` INT NOT NULL,
+  `pais` TEXT COLLATE utf8_spanish_ci NOT NULL,
   `image` TEXT COLLATE utf8_spanish_ci NOT NULL,
   `datePublished` date NOT NULL,
   PRIMARY KEY (`id`)
@@ -124,9 +125,9 @@ CREATE TABLE IF NOT EXISTS `series` (
 -- Volcado de datos para la tabla `series`
 --
 
-INSERT INTO `series` (`name`, `description`, `isbn`, `image`, `datePublished`) VALUES
-('Drácula', 'Drácula es una novela publicada en 1897 por el irlandés Bram Stoker, quien ha convertido a su protagonista en el vampiro más famoso. Se dice que el escritor se basó en las conversaciones que mantuvo con un erudito húngaro llamado Arminius Vámbéry, quien le habló de Vlad Drăculea. La novela, escrita de manera epistolar, presenta otros temas, como el papel de la mujer en la época victoriana, la sexualidad, la inmigración, el colonialismo o el folclore. Como curiosidad, cabe destacar que Bram Stoker no inventó la leyenda vampírica, pero la influencia de la novela ha logrado llegar al cine, el teatro y la televisión.', '0-30-735016-9', 'http://i58.tinypic.com/29ar8fs.jpg', '1897-05-26'),
-('El retrato de Dorian Gray', 'El retrato de Dorian Gray (original en inglés: The Picture of Dorian Gray) es una novela escrita por el autor irlandés Oscar Wilde, publicada en el Lippincotts Monthly Magazine el 20 de junio de 1890.1 Posteriormente, Wilde revisaría la obra, haría varias modificaciones y agregaría nuevos capítulos. La versión modificada fue publicada por Ward, Lock, and Company en abril de 1891.2 Ward, Lock, and Company reeditó el libro en 1891 y nuevamente en 1895. Luego, Charles Carrington compró los derechos de la obra y la editó en 1901, 1905 y 1908.', '0-14-143957-2', 'http://image.casadellibro.com/a/l/t0/36/9788467032536.jpg', '1890-06-20'),
-('Juego de Tronos', 'Juego de tronos —título original en inglés: A Game of Thrones— es una novela de fantasía escrita por el autor estadounidense George R. R. Martin en 1996 y ganadora del premio Locus en 1997. Se trata de la primera entrega de la serie de gran popularidad Canción de hielo y fuego. La novela se caracteriza por el uso de numerosos personajes bien detallados, la contraposición de puntos de vista de los múltiples protagonistas, su trama con giros inesperados y un uso sutil y moderado de los aspectos mágicos tan comunes en otras obras de fantasía.', '0-55-310354-7', 'http://espaciolibros.com/wp-content/uploads/2011/07/todos-los-libros-de-juego-de-tronos-en-pdf.jpg', '1996-08-06');
+INSERT INTO `series` (`name`, `description`, `temporadas`,`pais`, `image`, `datePublished`) VALUES
+('Breaking Bad', 'Un profesor de química se mete a camello', 5,'EEUU', 'http://i58.tinypic.com/29ar8fs.jpg', '2002-05-26'),
+('Juego de Tronos', 'Tres dragones inclinan la balanza de la guerra', 7,'Reino Unido', 'http://image.casadellibro.com/a/l/t0/36/9788467032536.jpg', '2001-06-20'),
+('La casa de papel', 'Roban la casa de la moneda', 2,'España', 'http://espaciolibros.com/wp-content/uploads/2011/07/todos-los-libros-de-juego-de-tronos-en-pdf.jpg', '2016-08-06');
 
 

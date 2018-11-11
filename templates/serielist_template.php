@@ -32,7 +32,8 @@
             "data" : [
                 {"name" : "name", "value" : "", "prompt" : "Nombre de la serie"},
                 {"name" : "description", "value" : "", "prompt" : "Descripción de la serie"},
-                {"name" : "isbn", "value" : "", "prompt" : "ISBN de la serie"},
+                {"name" : "temporadas", "value" : "", "prompt" : "Temporadas de la serie"},
+                {"name" : "pais", "value" : "", "prompt" : "País de la serie"},
                 {"name" : "datePublished", "value" : "", "prompt" : "Fecha de publicación"},
                 {"name" : "image", "value" : "", "prompt" : "TImagen"}        
             ]

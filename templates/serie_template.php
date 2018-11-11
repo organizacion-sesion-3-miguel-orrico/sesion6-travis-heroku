@@ -18,9 +18,10 @@
                 {
                     "href" : "{{ path_for('series') }}/{{ item.id }}",
                         "data" : [
-                            {"name" : "name", "value" : "{{ item.name }}", "prompt" : "Nombre del libro"},
-                            {"name" : "description", "value" : "{{ item.description }}", "prompt" : "Descripción del libro"},
-                            {"name" : "isbn", "value" : "{{ item.isbn }}", "prompt" : "ISBN del libro"},
+                            {"name" : "name", "value" : "{{ item.name }}", "prompt" : "Nombre de la serie"},
+                            {"name" : "description", "value" : "{{ item.description }}", "prompt" : "Descripción de la serie"},
+                            {"name" : "temporadas", "value" : "{{ item.temporadas }}", "prompt" : "Temporadas de la serie"},
+                            {"name" : "pais", "value" : "{{ item.pais }}", "prompt" : "País de la serie"},
                             {"name" : "datePublished", "value" : "{{ item.datePublished }}", "prompt" : "Fecha de publicación"},
                             {"name" : "image", "value" : "{{ item.image }}", "prompt" : "Imagen"}
                         ]
@@ -32,7 +33,8 @@
             "data" : [
                 {"name" : "name", "value" : "", "prompt" : "Nombre de la serie"},
                 {"name" : "description", "value" : "", "prompt" : "Descripción de la serie"},
-                {"name" : "isbn", "value" : "", "prompt" : "ISBN de la serie"},
+                {"name" : "temporadas", "value" : "", "prompt" : "Tempporadas de la serie"},
+                {"name" : "pais", "value" : "", "prompt" : "país de la serie"},
                 {"name" : "datePublished", "value" : "", "prompt" : "Fecha de publicación"},
                 {"name" : "image", "value" : "", "prompt" : "TImagen"}        
             ]

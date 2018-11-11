@@ -63,10 +63,13 @@ $app->post('/series', function ($req, $res, $args) {
             $description = $item['value'];
             break;
 
-        case 'isbn':
-            $isbn = $item['value'];
+        case 'temporadas':
+            $temporadas = $item['value'];
             break;
 
+	case 'pais':
+            $pais = $item['value'];
+            break;
         case 'datePublished':
             $datePublished = $item['value'];
             break;
@@ -81,7 +84,8 @@ $app->post('/series', function ($req, $res, $args) {
 
     $serie->name = $name;
     $serie->description = $description;
-    $serie->isbn = $isbn;
+    $serie->temporadas = $temporadas;
+    $serie->pais = $pais;
     $serie->datePublished = $datePublished;
     $serie->image = $image;
     $serie->save();
@@ -106,14 +110,13 @@ $app->put('/series/{name}', function ($req, $res, $args) {
             $nombre= $item['value'];
             break;
 
-        case 'description':
-            $description = $item['value'];
+        case 'temporadas':
+            $temporadas = $item['value'];
             break;
 
-        case 'isbn':
-            $isbn = $item['value'];
+	case 'pais':
+            $pais = $item['value'];
             break;
-
         case 'datePublished':
             $datePublished = $item['value'];
             break;
@@ -124,12 +127,15 @@ $app->put('/series/{name}', function ($req, $res, $args) {
         }
     }
 
-    $p->name = $nombre;
-    $p->description = $description;
-    $p->isbn = $isbn;
-    $p->datePublished = $datePublished;
-    $p->image = $image;
-    $p->save();
+    $serie = new Serie;
+
+    $serie->name = $name;
+    $serie->description = $description;
+    $serie->temporadas = $temporadas;
+    $serie->pais = $pais;
+    $serie->datePublished = $datePublished;
+    $serie->image = $image;
+    $serie->save();
 
 
 });
